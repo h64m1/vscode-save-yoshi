@@ -1,7 +1,7 @@
 {
   "name": "vscode-save-yoshi",
   "displayName": "vscode-save-yoshi",
-  "description": "",
+  "description": "ヨシ！",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.73.0"
@@ -10,16 +10,25 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:vscode-save-yoshi.helloWorld"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "vscode-save-yoshi.helloWorld",
-        "title": "Hello World"
+    "configuration": {
+      "title": "vscode-save-yoshi",
+      "properties": {
+        "vscodeSaveYoshi.prefix": {
+          "type": "string",
+          "default": "",
+          "description": "text displayed before ヨシ！"
+        },
+        "vscodeSaveYoshi.suffix": {
+          "type": "string",
+          "default": "",
+          "description": "text dispalyed behind ヨシ！"
+        }
       }
-    ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
