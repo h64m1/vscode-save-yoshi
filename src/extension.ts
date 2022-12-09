@@ -1,9 +1,13 @@
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
+  const config = vscode.workspace.getConfiguration('vscodeSaveYoshi');
+  const prefix = config.get('prefix');
+  const suffix = config.get('suffix');
+
   context.subscriptions.push(
     vscode.workspace.onDidSaveTextDocument(() => {
-      vscode.window.showInformationMessage('ヨシ！', { modal: true });
+      vscode.window.showInformationMessage(`${prefix}ヨシ！${suffix}`);
     }),
   );
 }
